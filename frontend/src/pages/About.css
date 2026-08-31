@@ -1,0 +1,43 @@
+.page-hero {
+  background: var(--navy-950);
+  color: #fff;
+  padding: 72px 0 56px;
+}
+.page-hero .eyebrow { color: #6be0d9; }
+.page-hero h1 { color: #fff; max-width: 760px; }
+.page-hero__sub { color: #b6c0d6; max-width: 620px; font-size: 1.05rem; }
+
+.about-card { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+.about-card--sm { padding: 24px; }
+
+.approach-path {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.approach-step {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  min-width: 190px;
+  flex: 1;
+}
+.approach-step__num {
+  display: block;
+  color: var(--teal-dark);
+  margin-bottom: 10px;
+}
+.approach-arrow {
+  align-self: center;
+  color: var(--line);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .approach-path { flex-direction: column; }
+  .approach-arrow { transform: rotate(90deg); align-self: flex-start; margin-left: 20px; }
+}

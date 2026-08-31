@@ -1,0 +1,118 @@
+/* Course card ---------------------------------------------------------- */
+.course-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+.course-card__icon {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--teal);
+  background: var(--teal-tint);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.course-card__desc {
+  font-size: 0.92rem;
+  flex-grow: 1;
+}
+.course-card__meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.course-card__tech {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.course-card__tech li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 3px 9px;
+  border-radius: 6px;
+  color: var(--ink-soft);
+}
+.course-card__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+.course-card__actions .btn { flex: 1; }
+
+/* Internship card -------------------------------------------------------- */
+.internship-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.internship-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.internship-card__perks {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.internship-card__perks li::before {
+  content: '✓ ';
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+/* Testimonial card -------------------------------------------------------- */
+.testimonial-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stars { display: flex; gap: 2px; }
+.star { color: var(--line); font-size: 1.05rem; }
+.star--filled { color: var(--amber); }
+.testimonial-card__quote {
+  font-size: 1rem;
+  color: var(--ink);
+  flex-grow: 1;
+}
+.testimonial-card__person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--navy-950);
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-card__name {
+  font-weight: 600;
+  font-size: 0.92rem;
+}

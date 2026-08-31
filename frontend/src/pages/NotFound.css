@@ -1,0 +1,9 @@
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.not-found__inner h1 { margin-top: 8px; }
+.not-found__inner .btn { margin-top: 12px; }

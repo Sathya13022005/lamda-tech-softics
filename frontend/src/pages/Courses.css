@@ -1,0 +1,21 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-chip {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  transition: all 0.2s ease;
+}
+.filter-chip:hover { border-color: var(--teal); color: var(--teal-dark); }
+.filter-chip--active {
+  background: var(--navy-950);
+  border-color: var(--navy-950);
+  color: #fff;
+}
