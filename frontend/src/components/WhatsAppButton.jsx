@@ -1,12 +1,10 @@
 import React from 'react';
+import { buildWhatsAppLink } from '../config/whatsapp.js';
 
-// Replace with the institute's real WhatsApp business number, digits only,
-// including country code (e.g. 91XXXXXXXXXX for India).
-const WHATSAPP_NUMBER = '9361886138';
 const DEFAULT_MESSAGE = "Hi Lamda Tech Softics, I'd like to know more about your courses.";
 
 export default function WhatsAppButton() {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
+  const href = buildWhatsAppLink(DEFAULT_MESSAGE);
   return (
     <a
       href={href}

@@ -1,6 +1,7 @@
 import React from 'react';
 import EnquiryForm from '../components/EnquiryForm.jsx';
 import useReveal from '../hooks/useReveal.js';
+import { buildWhatsAppLink } from '../config/whatsapp.js';
 import './Contact.css';
 
 export default function Contact() {
@@ -27,19 +28,19 @@ export default function Contact() {
                 </li>
                 <li>
                   <span className="contact-info__label mono-label">Phone</span>
-                  <span>+91 9361886138</span>
+                  <span>+91 00000 00000</span>
                 </li>
                 <li>
                   <span className="contact-info__label mono-label">WhatsApp</span>
-                  <span>+91 9361886138</span>
+                  <span>+91 00000 00000</span>
                 </li>
                 <li>
                   <span className="contact-info__label mono-label">Email</span>
-                  <span>lamdatechsofticssrivilliputtur@gmail.com</span>
+                  <span>info@lamdatechsoftics.com</span>
                 </li>
               </ul>
               <a
-                href="https://wa.me/9361886138"
+                href={buildWhatsAppLink("Hi Lamda Tech Softics, I'd like to know more about your courses.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--primary btn--block"

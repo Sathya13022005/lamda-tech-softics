@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import CourseDetailsModal from './CourseDetailsModal.jsx';
 import { getCourseLogo } from '../data/courseIcons.js';
 import './Cards.css';
 
 export default function CourseCard({ course, onEnquire }) {
   const { course_name, description, duration, level, technologies, icon } = course;
+  const [showDetails, setShowDetails] = useState(false);
   const logo = getCourseLogo(course_name);
   const techList = Array.isArray(technologies)
     ? technologies
@@ -36,11 +37,20 @@ export default function CourseCard({ course, onEnquire }) {
       )}
 
       <div className="course-card__actions">
-        <Link to="/courses" className="btn btn--outline btn--sm">View Details</Link>
+        <button type="button" className="btn btn--outline btn--sm" onClick={() => setShowDetails(true)}>View Details</button>
         <button type="button" className="btn btn--primary btn--sm" onClick={() => onEnquire && onEnquire(course)}>
           Enquire Now
         </button>
       </div>
+      {showDetails && (
+        <CourseDetailsModal
+          course={course}
+          logo={logo}
+          techList={techList}
+          onClose={() => setShowDetails(false)}
+          onEnquire={onEnquire}
+        />
+      )}
     </article>
   );
 }

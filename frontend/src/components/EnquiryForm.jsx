@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { submitEnquiry } from '../services/api.js';
+import { buildWhatsAppLink } from '../config/whatsapp.js';
 import './EnquiryForm.css';
 
 const COURSE_OPTIONS = [
@@ -32,6 +33,7 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [serverError, setServerError] = useState('');
+  const [saved, setSaved] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,15 +49,31 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
 
     setStatus('submitting');
     setServerError('');
+
+    // 1) Open WhatsApp FIRST, directly inside the click handler, so browsers
+    //    do not block the popup. The student only has to tap Send.
+    const waMessage = [
+      'New course enquiry from the website:',
+      `Name: ${values.name}`,
+      `Email: ${values.email}`,
+      `Phone: ${values.phone}`,
+      `Course: ${values.course}`,
+      values.message ? `Message: ${values.message}` : null,
+    ].filter(Boolean).join('\n');
+    window.open(buildWhatsAppLink(waMessage), '_blank', 'noopener,noreferrer');
+
+    // 2) Also try to save the enquiry in the database. This is a bonus:
+    //    if the backend is offline, the WhatsApp enquiry still goes through.
     try {
       await submitEnquiry(values);
-      setStatus('success');
-      setValues({ ...initialState, course: defaultCourse });
-      if (onSuccess) onSuccess();
+      setSaved(true);
     } catch (err) {
-      setStatus('error');
-      setServerError(err.message || 'Could not submit your enquiry. Please try again.');
+      setSaved(false);
     }
+
+    setStatus('success');
+    setValues({ ...initialState, course: defaultCourse });
+    if (onSuccess) onSuccess();
   };
 
   if (status === 'success') {
@@ -63,7 +81,12 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
       <div className="enquiry-success" role="status">
         <div className="enquiry-success__icon">&#10003;</div>
         <h3>Thank you!</h3>
-        <p>Your enquiry has been submitted successfully. Our team will reach out to you shortly.</p>
+        <p>
+          {saved
+            ? 'Your enquiry has been submitted successfully. '
+            : 'Your enquiry is ready. '}
+          WhatsApp has opened with your details. Please tap <strong>Send</strong> there to reach us instantly.
+        </p>
         <button type="button" className="btn btn--outline btn--sm" onClick={() => setStatus('idle')}>
           Submit another enquiry
         </button>
