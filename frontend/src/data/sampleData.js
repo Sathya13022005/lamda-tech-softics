@@ -11,7 +11,7 @@ export const CATEGORY = {
 };
 
 export const sampleCourses = [
-  { id: 1, course_name: 'Python Programming', description: 'From core syntax to real automation and backend scripting.', duration: '2 Months', level: 'Beginner', technologies: 'Python, OOP, Flask', category: CATEGORY.PROGRAMMING, icon: 'py' },
+  { id: 1, course_name: 'Python Programming', description: 'From core syntax to real automation and backend scripting.', duration: '2 Months', level: 'Beginner', technologies: 'Python, OOP, Flask', category: CATEGORY.PROGRAMMING, icon: 'python.jpg' },
   { id: 2, course_name: 'C Programming', description: 'Build a strong programming foundation with hands-on logic building.', duration: '6 Weeks', level: 'Beginner', technologies: 'C, GDB, DSA Basics', category: CATEGORY.PROGRAMMING, icon: 'c' },
   { id: 3, course_name: 'C++', description: 'Object-oriented programming and data structures for real projects.', duration: '2 Months', level: 'Beginner', technologies: 'C++, STL, OOP', category: CATEGORY.PROGRAMMING, icon: 'cpp' },
   { id: 4, course_name: 'Java', description: 'Core and advanced Java for enterprise-style application development.', duration: '3 Months', level: 'Intermediate', technologies: 'Java, OOP, JDBC', category: CATEGORY.PROGRAMMING, icon: 'jv' },

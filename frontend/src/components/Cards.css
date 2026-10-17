@@ -4,13 +4,19 @@
   display: flex;
   flex-direction: column;
 }
+.course-card__icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
 .course-card__icon {
   font-family: var(--font-mono);
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: var(--teal);
-  background: var(--teal-tint);
-  width: 48px;
-  height: 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;

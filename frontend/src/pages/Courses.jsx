@@ -51,7 +51,8 @@ export default function Courses() {
         <div className="container">
           <p className="eyebrow">Courses</p>
           <h1>Practical courses across programming, web, data & design</h1>
-          <p className="page-hero__sub">Filter by track to find the right course, then enquire directly from the card.</p>
+          <p className="page-hero__sub">Filter by track to find the right course, 
+            then enquire directly from the card.</p>
         </div>
       </section>
 

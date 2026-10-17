@@ -1,16 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getCourseLogo } from '../data/courseIcons.js';
 import './Cards.css';
 
 export default function CourseCard({ course, onEnquire }) {
   const { course_name, description, duration, level, technologies, icon } = course;
+  const logo = getCourseLogo(course_name);
   const techList = Array.isArray(technologies)
     ? technologies
     : String(technologies || '').split(',').map((t) => t.trim()).filter(Boolean);
 
   return (
     <article className="card course-card reveal">
-      <div className="course-card__icon" aria-hidden="true">{icon || '{ }'}</div>
+      <div className="course-card__icon">
+        {logo ? (
+          <img src={logo} alt={`${course_name} logo`} loading="lazy" />
+        ) : (
+          <span aria-hidden="true">{icon || '{ }'}</span>
+        )}
+      </div>
       <h3>{course_name}</h3>
       <p className="course-card__desc">{description}</p>
 
