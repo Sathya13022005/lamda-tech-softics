@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Cards.css';
 
-export default function InternshipCard({ internship }) {
+export default function InternshipCard({ internship, onApply }) {
   const { internship_name, duration, technologies, description } = internship;
   const techList = Array.isArray(technologies)
     ? technologies
@@ -30,7 +29,7 @@ export default function InternshipCard({ internship }) {
         <li>Dedicated mentor support</li>
       </ul>
 
-      <Link to="/contact" className="btn btn--primary btn--sm btn--block">Apply Now</Link>
+      <button type="button" className="btn btn--primary btn--sm btn--block" onClick={() => onApply && onApply(internship)}>Apply Now</button>
     </article>
   );
 }

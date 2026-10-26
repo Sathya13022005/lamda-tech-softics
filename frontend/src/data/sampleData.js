@@ -11,7 +11,7 @@ export const CATEGORY = {
 };
 
 export const sampleCourses = [
-  { id: 1, course_name: 'Python Programming', description: 'From core syntax to real automation and backend scripting.', duration: '2 Months', level: 'Beginner', technologies: 'Python, OOP, Flask', category: CATEGORY.PROGRAMMING, icon: 'python.jpg' },
+  { id: 1, course_name: 'Python Programming', description: 'From core syntax to real automation and backend scripting.', duration: '2 Months', level: 'Beginner', technologies: 'Python, OOP, Flask', category: CATEGORY.PROGRAMMING, icon: 'py' },
   { id: 2, course_name: 'C Programming', description: 'Build a strong programming foundation with hands-on logic building.', duration: '6 Weeks', level: 'Beginner', technologies: 'C, GDB, DSA Basics', category: CATEGORY.PROGRAMMING, icon: 'c' },
   { id: 3, course_name: 'C++', description: 'Object-oriented programming and data structures for real projects.', duration: '2 Months', level: 'Beginner', technologies: 'C++, STL, OOP', category: CATEGORY.PROGRAMMING, icon: 'cpp' },
   { id: 4, course_name: 'Java', description: 'Core and advanced Java for enterprise-style application development.', duration: '3 Months', level: 'Intermediate', technologies: 'Java, OOP, JDBC', category: CATEGORY.PROGRAMMING, icon: 'jv' },
@@ -34,13 +34,13 @@ export const sampleCourses = [
 ];
 
 export const sampleInternships = [
-  { id: 1, internship_name: 'Python Internship', duration: '6 Weeks', technologies: 'Python, Flask, MySQL', description: 'Work on live automation and backend projects with mentor code reviews.' },
-  { id: 2, internship_name: 'Full Stack Development Internship', duration: '8 Weeks', technologies: 'React, PHP, MySQL', description: 'Build and ship a complete web application from database to UI.' },
-  { id: 3, internship_name: 'Web Development Internship', duration: '6 Weeks', technologies: 'HTML, CSS, JavaScript', description: 'Design and develop responsive websites for real practice briefs.' },
-  { id: 4, internship_name: 'Data Analytics Internship', duration: '6 Weeks', technologies: 'SQL, Excel, Power BI', description: 'Analyze real datasets and present insights the way analysts do at work.' },
-  { id: 5, internship_name: 'AI & Machine Learning Internship', duration: '8 Weeks', technologies: 'Python, scikit-learn', description: 'Build and evaluate ML models on guided, real-world problem sets.' },
-  { id: 6, internship_name: 'Digital Marketing Internship', duration: '4 Weeks', technologies: 'SEO, Social Media, Ads', description: 'Plan and run real campaigns and measure their performance.' },
-  { id: 7, internship_name: 'UI/UX Internship', duration: '6 Weeks', technologies: 'Figma, User Research', description: 'Design interfaces for real briefs, from wireframe to prototype.' },
+  { id: 1, internship_name: 'Python Internship', duration: '30 Days', technologies: 'Python, Flask, MySQL', description: 'Work on live automation and backend projects with mentor code reviews.' },
+  { id: 2, internship_name: 'Full Stack Development Internship', duration: '30 Days', technologies: 'React, PHP, MySQL', description: 'Build and ship a complete web application from database to UI.' },
+  { id: 3, internship_name: 'Web Development Internship', duration: '15 Days', technologies: 'HTML, CSS, JavaScript', description: 'Design and develop responsive websites for real practice briefs.' },
+  { id: 4, internship_name: 'Data Analytics Internship', duration: '30 Days', technologies: 'SQL, Excel, Power BI', description: 'Analyze real datasets and present insights the way analysts do at work.' },
+  { id: 5, internship_name: 'AI & Machine Learning Internship', duration: '30 Days', technologies: 'Python, scikit-learn', description: 'Build and evaluate ML models on guided, real-world problem sets.' },
+  { id: 6, internship_name: 'Digital Marketing Internship', duration: '15 Days', technologies: 'SEO, Social Media, Ads', description: 'Plan and run real campaigns and measure their performance.' },
+  { id: 7, internship_name: 'UI/UX Internship', duration: '15 Days', technologies: 'Figma, User Research', description: 'Design interfaces for real briefs, from wireframe to prototype.' },
 ];
 
 export const sampleTestimonials = [

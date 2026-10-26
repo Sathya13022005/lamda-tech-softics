@@ -87,13 +87,13 @@ INSERT INTO courses (course_name, description, duration, level, technologies, ca
 ('Tally Prime with GST', 'Practical accounting and GST compliance using Tally Prime.', '1 Month', 'Beginner', 'Tally Prime, GST, Accounting', 'Digital Marketing');
 
 INSERT INTO internships (internship_name, duration, technologies, description) VALUES
-('Python Internship', '6 Weeks', 'Python, Flask, MySQL', 'Work on live automation and backend projects with mentor code reviews.'),
-('Full Stack Development Internship', '8 Weeks', 'React, PHP, MySQL', 'Build and ship a complete web application from database to UI.'),
-('Web Development Internship', '6 Weeks', 'HTML, CSS, JavaScript', 'Design and develop responsive websites for real practice briefs.'),
-('Data Analytics Internship', '6 Weeks', 'SQL, Excel, Power BI', 'Analyze real datasets and present insights the way analysts do at work.'),
-('AI & Machine Learning Internship', '8 Weeks', 'Python, scikit-learn', 'Build and evaluate ML models on guided, real-world problem sets.'),
-('Digital Marketing Internship', '4 Weeks', 'SEO, Social Media, Ads', 'Plan and run real campaigns and measure their performance.'),
-('UI/UX Internship', '6 Weeks', 'Figma, User Research', 'Design interfaces for real briefs, from wireframe to prototype.');
+('Python Internship', '30 Days', 'Python, Flask, MySQL', 'Work on live automation and backend projects with mentor code reviews.'),
+('Full Stack Development Internship', '30 Days', 'React, PHP, MySQL', 'Build and ship a complete web application from database to UI.'),
+('Web Development Internship', '15 Days', 'HTML, CSS, JavaScript', 'Design and develop responsive websites for real practice briefs.'),
+('Data Analytics Internship', '30 Days', 'SQL, Excel, Power BI', 'Analyze real datasets and present insights the way analysts do at work.'),
+('AI & Machine Learning Internship', '30 Days', 'Python, scikit-learn', 'Build and evaluate ML models on guided, real-world problem sets.'),
+('Digital Marketing Internship', '15 Days', 'SEO, Social Media, Ads', 'Plan and run real campaigns and measure their performance.'),
+('UI/UX Internship', '15 Days', 'Figma, User Research', 'Design interfaces for real briefs, from wireframe to prototype.');
 
 INSERT INTO testimonials (student_name, course, testimonial, rating) VALUES
 ('Arun Kumar', 'Python Programming', 'The practical training helped me understand Python much better. The trainer explained everything step by step.', 5),

@@ -11,7 +11,7 @@ const COURSE_OPTIONS = [
 
 const initialState = { name: '', email: '', phone: '', course: '', message: '' };
 
-function validate(values) {
+function validate(values, courseLabel) {
   const errors = {};
   if (!values.name.trim()) errors.name = 'Please enter your name.';
   if (!values.email.trim()) {
@@ -24,11 +24,23 @@ function validate(values) {
   } else if (!/^[0-9+\-\s]{7,15}$/.test(values.phone)) {
     errors.phone = 'Please enter a valid phone number.';
   }
-  if (!values.course) errors.course = 'Please select a course.';
+  if (!values.course) errors.course = `Please choose a ${courseLabel.toLowerCase()}.`;
   return errors;
 }
 
-export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = false }) {
+export default function EnquiryForm({
+  defaultCourse = '',
+  onSuccess,
+  compact = false,
+  courseOptions = COURSE_OPTIONS,   // list shown in the dropdown
+  courseLabel = 'Course',           // "Course" or "Internship"
+  whatsappHeading = whatsappHeading,
+  noun = 'enquiry',                 // used in success text: enquiry / application
+  submitLabel = 'Send Enquiry',
+}) {
+  const options = defaultCourse && !courseOptions.includes(defaultCourse)
+    ? [defaultCourse, ...courseOptions]
+    : courseOptions;
   const [values, setValues] = useState({ ...initialState, course: defaultCourse });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
@@ -43,7 +55,7 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validate(values);
+    const validationErrors = validate(values, courseLabel);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
@@ -57,7 +69,7 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
       `Name: ${values.name}`,
       `Email: ${values.email}`,
       `Phone: ${values.phone}`,
-      `Course: ${values.course}`,
+      `${courseLabel}: ${values.course}`,
       values.message ? `Message: ${values.message}` : null,
     ].filter(Boolean).join('\n');
     window.open(buildWhatsAppLink(waMessage), '_blank', 'noopener,noreferrer');
@@ -83,12 +95,12 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
         <h3>Thank you!</h3>
         <p>
           {saved
-            ? 'Your enquiry has been submitted successfully. '
-            : 'Your enquiry is ready. '}
+            ? `Your ${noun} has been submitted successfully. `
+            : `Your ${noun} is ready. `}
           WhatsApp has opened with your details. Please tap <strong>Send</strong> there to reach us instantly.
         </p>
         <button type="button" className="btn btn--outline btn--sm" onClick={() => setStatus('idle')}>
-          Submit another enquiry
+          Submit another {noun}
         </button>
       </div>
     );
@@ -116,10 +128,10 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
           {errors.phone && <span className="field-error">{errors.phone}</span>}
         </label>
         <label>
-          Course
+          {courseLabel}
           <select name="course" value={values.course} onChange={handleChange} aria-invalid={!!errors.course}>
-            <option value="">Select a course</option>
-            {COURSE_OPTIONS.map((c) => <option key={c} value={c}>{c}</option>)}
+            <option value="">Select {courseLabel.toLowerCase() === 'course' ? 'a course' : `an ${courseLabel.toLowerCase()}`}</option>
+            {options.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
           {errors.course && <span className="field-error">{errors.course}</span>}
         </label>
@@ -133,7 +145,7 @@ export default function EnquiryForm({ defaultCourse = '', onSuccess, compact = f
       {status === 'error' && <p className="field-error field-error--server">{serverError}</p>}
 
       <button type="submit" className="btn btn--primary btn--block" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Sending…' : 'Send Enquiry'}
+        {status === 'submitting' ? 'Sending…' : submitLabel}
       </button>
     </form>
   );

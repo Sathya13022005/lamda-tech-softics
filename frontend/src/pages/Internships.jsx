@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import InternshipCard from '../components/InternshipCard.jsx';
+import InternshipApplyModal from '../components/InternshipApplyModal.jsx';
 import useReveal from '../hooks/useReveal.js';
 import { getInternships } from '../services/api.js';
 import { sampleInternships } from '../data/sampleData.js';
@@ -10,6 +10,7 @@ const PROCESS = ['Register', 'Learn', 'Work on Project', 'Mentor Review', 'Compl
 
 export default function Internships() {
   const [internships, setInternships] = useState(sampleInternships);
+  const [applyFor, setApplyFor] = useState(null);
   useReveal([internships]);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function Internships() {
         <div className="container">
           <div className="grid grid--3">
             {internships.map((item) => (
-              <InternshipCard key={item.id || item.internship_name} internship={item} />
+              <InternshipCard key={item.id || item.internship_name} internship={item} onApply={setApplyFor} />
             ))}
           </div>
         </div>
@@ -68,9 +69,15 @@ export default function Internships() {
         <div className="container cta__inner">
           <h2>Start Your Internship Journey</h2>
           <p>Seats are limited per batch to keep mentor attention high.</p>
-          <Link to="/contact" className="btn btn--amber">Apply for an Internship</Link>
+          <button type="button" className="btn btn--amber" onClick={() => setApplyFor(internships[0] || null)}>Apply for an Internship</button>
         </div>
       </section>
+
+      <InternshipApplyModal
+        internship={applyFor}
+        allInternships={internships}
+        onClose={() => setApplyFor(null)}
+      />
     </>
   );
 }
